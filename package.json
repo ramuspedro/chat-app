@@ -22,5 +22,10 @@
   "bugs": {
     "url": "https://github.com/ramuspedro/chat-app/issues"
   },
-  "homepage": "https://github.com/ramuspedro/chat-app#readme"
+  "homepage": "https://github.com/ramuspedro/chat-app#readme",
+  "dependencies": {
+    "@types/mocha": "^2.2.44",
+    "@types/node": "^8.5.1",
+    "express": "^4.16.2"
+  }
 }

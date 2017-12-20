@@ -1,20 +1,13 @@
-FROM node:carbon
+FROM risingstack/alpine:3.4-v8.5.0-4.7.0
 
-# create app directory
-WORKDIR /usr/src/app
+ENV PORT 3001
 
-# Install app dependencies
-# A wildcard is used to ensure both package.json AND package-lock.json are copied
-# where available (npm@5+)
-COPY package*.json ./
+EXPOSE 3001
 
+COPY package.json package.json
 RUN npm install
-# If you are building your code for production
-# RUN npm install --only=production
 
-# Bundle app source
 COPY . .
+RUN npm run build
 
-EXPOSE 8080
-
-CMD [ "npm", "start" ]
+CMD ["node", "dist/"]
