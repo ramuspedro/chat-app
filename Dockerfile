@@ -1,13 +1,11 @@
-FROM risingstack/alpine:3.4-v8.5.0-4.7.0
+FROM node:9
 
-ENV PORT 3001
+WORKDIR /app
 
-EXPOSE 3001
-
-COPY package.json package.json
+COPY package.json /app
 RUN npm install
+COPY . /app
 
-COPY . .
-RUN npm run build
+CMD node dist/index.js
 
-CMD ["node", "dist/"]
+EXPOSE 8081
